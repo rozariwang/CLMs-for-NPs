@@ -1,0 +1,1 @@
+python3 /nethome/hhwang/hhwang/shiawaseda/Auto_peptides_sfs_model_sfs.py
