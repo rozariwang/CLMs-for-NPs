@@ -32,7 +32,7 @@ lsv_cluster_files/       # Contains cluster-related setup
 
 ---
 
-## 📦 Installation
+## 📦 Environment Setup
 
 You can run this project either directly with Python or using Docker (**recommended**).
 
@@ -40,40 +40,9 @@ You can run this project either directly with Python or using Docker (**recommen
 
 1. **Build the image:**
 
-   ```bash
-   docker build -t clm-np .
-   ```
 
 2. **Run the container:**
 
-   ```bash
-   docker run -it --rm \
-     -v $(pwd):/workspace \
-     -e WANDB_API_KEY=your_wandb_key_here \
-     clm-np bash
-   ```
-
-> You can then run any script inside the container. Make sure your code is mounted using `-v`.
-
----
-
-### 🐍 Option 2: Python Environment (Manual Setup)
-
-1. Clone the repo
-2. Create a virtual environment:
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
 
 ## ⚙️ How to Run Tasks
 
