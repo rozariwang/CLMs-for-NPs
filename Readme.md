@@ -104,6 +104,14 @@ Use `--pt_n_head None` for non-GPT models.
 
 ### 4. Fine-tuning
 
+Fine-tuning and evaluation for 3 downstream classification tasks using 48 NP 
+pretrained models (3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers * 2 data split methods)
+
+Options:
+- task: "finetune"
+- sub_task: "anti_cancer", "peptides", "tastes"
+- model_split: "sfs" or "rds"  (how pre-training 1M NPs data is split)
+- data_split: "sf" or "rd"
 ```bash
 python3 main.py \
   --task finetune \
@@ -116,12 +124,17 @@ python3 main.py \
 
 ### 5. Fine-tuning ChemBERTa-2
 
-Fine-tuning ChemBERTa-2 MLM on 1M NPs:
+Fine-tuning ChemBERTa-2 MLM on 1M NPs
 ```bash
 python3 ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
 ```
 
-Fine-tuning ChemBERTa-2 on property prediction tasks:
+Fine-tuning ChemBERTa-2 on property prediction tasks \
+Options: 
+- task: "chemberta"
+- chemberta_model_type: "mlm" (original model), "mtr" (original model), "mlm-finetuned" (fine-tuned on 1M NPs) 
+- sub_task: "anti_cancer" or "peptides"
+- data_split: "rd" or "sf"
 ```bash
 python3 main.py \
   --task chemberta \
@@ -141,8 +154,8 @@ python3 main.py \
 
 Fine-tuning MolFormer on property prediction tasks \
 Options: 
-- tasks: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
-- sub_tasks: "anti_cancer" or "peptides"
+- task: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
+- sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
 python3 main.py \
