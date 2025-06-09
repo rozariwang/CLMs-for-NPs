@@ -139,7 +139,7 @@ python3 main.py \
   --wandb_key "$1"
 ```
 
-Fine-tuning MolFormer on property prediction tasks:
+Fine-tuning MolFormer on property prediction tasks: \
 Options: 
 - tasks: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
 - sub_tasks: "anti_cancer" or "peptides"
