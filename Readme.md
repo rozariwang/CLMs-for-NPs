@@ -118,7 +118,7 @@ python3 main.py \
 
 Fine-tuning ChemBERTa-2 MLM on 1M NPs:
 ```bash
-python3 ChemBERTa2_MLM_Finetune_on_1M_NPs.py \
+python3 ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
 ```
 
 Fine-tuning ChemBERTa-2 on property prediction tasks:
@@ -130,7 +130,7 @@ python3 main.py \
   --data_split sf
 ```
 
-### 5. Fine-tuning MolFormer
+### 6. Fine-tuning MolFormer
 
 Fine-tuning MolFormer on 1M NPs:
 ```bash
@@ -140,6 +140,10 @@ python3 main.py \
 ```
 
 Fine-tuning MolFormer on property prediction tasks:
+Options: 
+- tasks: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
+- sub_tasks: "anti_cancer" or "peptides"
+- data_split: "rd" or "sf"
 ```bash
 python3 main.py \
   --task molformer \
