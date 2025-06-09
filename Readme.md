@@ -82,6 +82,22 @@ python3 main.py \
 
 ### 3. Pretraining (requires WandB key)
 
+Pre-training 48 model variations on 1M NPs: 
+3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers (Char, BPE, AIS, NPBPE60, 
+NPBPE100, NPBPE1000, NPBPE7924, NPBPE30k) * 2 data split methods (random, scaffold)
+
+Options:
+- task: "pretrain"
+--wandb_key: specify "...."
+- pt_model: 
+- pt_tokenizer: 
+- pt_split:
+- pt_n_embd: 
+- pt_n_layer: 
+- pt_lr: 
+- pt_n_head: 
+- pt_n_head: 
+
 ```bash
 python3 main.py \
   --task pretrain \
