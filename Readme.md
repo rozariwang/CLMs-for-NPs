@@ -1,6 +1,6 @@
 # 🧪 CLMs for Natural Products
 
-- ✅ Natural Products Molecule Generation  
+- ✅ Natural Products Molecule Generation and Property Prediction 
 - 🔍 Model Pre-training Hyperparameter Search  
 - 🧠 Model Pre-training for Mamba, Mamba2, and GPT
 - 🧬 Fine-tuning for Property Prediction  
