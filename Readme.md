@@ -28,11 +28,8 @@ lsv_cluster_files/         # Contains cluster-related setup
 ├── mamba.dockerfile       # Dockerfile for Mamba training environment
 ├── run_experiments.sh     # Shell script to run experiments using main.py 
 └── run_experiments.sub    # Cluster job submission script
-
-
 ```
 
----
 
 ## 📦 Environment Setup
 
