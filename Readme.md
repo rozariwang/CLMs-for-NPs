@@ -132,14 +132,14 @@ python3 main.py \
 
 ### 6. Fine-tuning MolFormer
 
-Fine-tuning MolFormer on 1M NPs:
+Fine-tuning MolFormer on 1M NPs
 ```bash
 python3 main.py \
   --task molformer_1M_NPs \
   --wandb_key "$1"
 ```
 
-Fine-tuning MolFormer on property prediction tasks: \
+Fine-tuning MolFormer on property prediction tasks \
 Options: 
 - tasks: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
 - sub_tasks: "anti_cancer" or "peptides"
