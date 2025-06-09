@@ -7,7 +7,6 @@
 
 All tasks are managed through `main.py` and can be executed using a simple bash script.
 
----
 
 ## 🗂️ Directory Structure
 
