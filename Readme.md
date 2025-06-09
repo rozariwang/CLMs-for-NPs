@@ -36,7 +36,7 @@ lsv_cluster_files/       # Contains cluster-related setup
 
 You can run this project either directly with Python or using Docker (**recommended**).
 
-### 🔧 Option 1: Docker (Recommended)
+### 🔧 Docker Image
 
 1. **Build the image:**
 
@@ -145,7 +145,7 @@ python3 main.py \
 
 ### 6. Fine-tuning MolFormer
 
-Fine-tuning MolFormer on 1M NPs
+Fine-tuning MolFormer on 1M NPs (requires WandB key)
 ```bash
 python3 main.py \
   --task molformer_1M_NPs \
