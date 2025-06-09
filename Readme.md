@@ -1,33 +1,146 @@
-/Rosalie-Masters-thesis-repository
-│
-├── /Data/                             # Pre-training and Downstream Task Datasets
-│   ├── 1M NP Pre-training Data/       # Random and Scaffold Split 1M NPs pre-training data
-│   └── Downstream_Data/               # Random and Scaffold Split 5x5 CV Downstream Task Datasets
-│
-├── /lsv_cluster_files/                # LSV cluster Docker and .sh/.sub files
-│
-├── /Mol Generation/                   # Molecule Generation Code 
-│
-├── /NP CLMs Pretraining/              # Code for pretraining the 48 NP CLMs 
-│   ├── Model HPsearch/                # Hyperparameter search code
-│   └── Model Pretraining/             # Pretraining code
-│
-├── /Property Prediction Tasks/        # Code for finetuning on property rediction tasks
-│   ├── Anti-Cancer/                   # Finetuning for Anti-Cancer tasks (48 NP models)
-│   ├── FourTastes/                    # Finetuning for FourTastes tasks (48 NP models)
-│   ├── MolFormer and ChemBERTa2/      # Finetuning for MolFormer and ChemBERTa2 on Preprty Prediction Tasks
-│   ├── Peptides/                      # Finetuning for Peptides tasks (48 NP models)
-│   └── Tox21                          # Finetuning for Tox21 tasks (48 NP models)
-│
-├── /Tokenizers/                       # Tokenizers classes vocab files
-│   ├── Vocab Files/                   # Tokenizers .json vocab files
-│   └── tokenisers.py                  # Tokenizers classes 
-│ 
-├── /Generated pseudo NPs/             # Generated NP strings from all 48 models 
-│ 
-├── /Pretrained NP CLMs/               # Pretrained model checkpoint/weight files (20 out of the 48)
-│
-├── sam.py                             # Sharpness Aware Minimization 
-│
-├── README.md                          # Repo structure documentation (this file)
-└── LICENSE                            # License information
+# 🧪 CLMs for Natural Products
+
+- ✅ Natural Products Molecule Generation  
+- 🔍 Model Pre-training Hyperparameter Search  
+- 🧠 Model Pre-training for Mamba, Mamba2, and GPT
+- 🧬 Fine-tuning for Property Prediction  
+
+All tasks are managed through `main.py` and can be executed using a simple bash script.
+
+---
+
+## 🗂️ Directory Structure
+
+```
+main.py                  # Entry point
+mol_generation.py        # NP molecule generation 
+hpsearch.py              # Model pre-training hyperparameter search  
+pretraining.py           # Model pre-training for Mamba, Mamba2, and GPT
+finetuning.py            # Fine-tuning on property prediction tasks
+sam.py                   # SAM implementation from UU-Mamba (arXiv:2402.03394)
+tokenisers.py            # Custom tokenizers implementation 
+data/                    # Contains pre-training 1M NPs and downstream task data files
+molformer_n_chemberta_2/ # Contains MolFormer and ChemBERTa-2 fine-tuning code 
+vocab_files/             # Contains vocab.json files for all custom tokenizers 
+lsv_cluster_files/       # Contains cluster-related setup
+├── mamba.dockerfile     # Dockerfile for Mamba training environment
+├── run_experiments.sh   # Shell script to run experiments using main.py 
+└── run_experiments.sub  # Cluster job submission script
+
+
+```
+
+---
+
+## 📦 Installation
+
+You can run this project either directly with Python or using Docker (**recommended**).
+
+### 🔧 Option 1: Docker (Recommended)
+
+1. **Build the image:**
+
+   ```bash
+   docker build -t clm-np .
+   ```
+
+2. **Run the container:**
+
+   ```bash
+   docker run -it --rm \
+     -v $(pwd):/workspace \
+     -e WANDB_API_KEY=your_wandb_key_here \
+     clm-np bash
+   ```
+
+> You can then run any script inside the container. Make sure your code is mounted using `-v`.
+
+---
+
+### 🐍 Option 2: Python Environment (Manual Setup)
+
+1. Clone the repo
+2. Create a virtual environment:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## ⚙️ How to Run Tasks
+
+All tasks are executed via `main.py`. A helper script `run_pretrain.sh` is provided to simplify usage.
+
+### 🔧 Script Usage
+
+```bash
+bash run_pretrain.sh YOUR_WANDB_KEY
+```
+
+Uncomment the block corresponding to the task you want to run.
+
+---
+
+### 1. Molecule Generation
+
+```bash
+python3 main.py \
+  --task generate \
+  --num_mols 50 \
+  --temperature 0.7 \
+  --max_length 256 \
+  --model_names rozariwang/M2-NPBPE1000-rds
+```
+
+---
+
+### 2. Hyperparameter Search
+
+```bash
+python3 main.py \
+  --task hpsearch \
+  --hp_model GPT \
+  --hp_tokenizer AIS \
+  --hp_split random
+```
+
+---
+
+### 3. Pretraining (requires WandB key)
+
+```bash
+python3 main.py \
+  --task pretrain \
+  --wandb_key YOUR_WANDB_KEY \
+  --pt_model GPT \
+  --pt_tokenizer NPBPE1000 \
+  --pt_split random \
+  --pt_n_embd 256 \
+  --pt_n_layer 8 \
+  --pt_lr 1e-4 \
+  --pt_n_head 4
+```
+
+Use `--pt_n_head None` for non-GPT models.
+
+---
+
+### 4. Fine-tuning
+
+```bash
+python3 main.py \
+  --task finetune \
+  --sub_task peptides \
+  --model_split sfs \
+  --data_split sf
+```
+
+---
