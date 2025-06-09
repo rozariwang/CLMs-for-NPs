@@ -107,7 +107,7 @@ pretrained models (3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers * 2 data
 Options:
 - task: "finetune"
 - sub_task: "anti_cancer", "peptides", "tastes"
-- model_split: "sfs" or "rds"  (how pre-training 1M NPs data is split)
+- model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
 - data_split: "sf" or "rd"
 ```bash
 python3 main.py \
