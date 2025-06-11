@@ -6,15 +6,17 @@ It includes all major components for pre-training and evaluating Chemical Langua
 
 ## ✅ What's Included
 
-- **Tokenizers**: Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE variants.   
-- **Pre-training** of 48 CLMs (GPT, Mamba, Mamba-2 × 8 tokenizers × 2 data splits) on a curated 1M NP dataset  
-- **Hyperparameter Search** to optimize the 48 model-tokenizer pair configurations   
-- **Fine-tuning** for NP-relevant property prediction tasks:  
+- **Data** includes the pre-training data of over 1 million NPs and 4 downstream property prediction datasets 
+- **Tokenizer implementation and vocab.json files** for Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE tokenizers of different vocabulary sizes.    
+- **Pre-training code** for 48 CLMs (3 model types (GPT, Mamba, Mamba-2) × 8 tokenizers × 2 data splits (scaffold and random splits)) on the curated 1M NP dataset  
+- **Hyperparameter Search code** to optimize the 48 model-tokenizer pair configurations   
+- **Fine-tuning code** for NP-relevant property prediction tasks (excluding Tox21):  
   - Peptide membrane permeability  
   - Taste classification  
   - Anti-cancer activity prediction  
 - **Fine-tuning scripts for benchmark models**: MolFormer and ChemBERTa-2 (MLM and MTR versions)
-- **Molecule Generation** using autoregressive sampling 
+- **Molecule Generation script** using autoregressive sampling 
+- **Generated pseudo-NP molecules** using each of the 48 models 
 - **Experiment launcher script**: A main shell script (`run_experiments.sh`) is provided to run all major experiments
 
 > ⚠️ **Model Access**  
