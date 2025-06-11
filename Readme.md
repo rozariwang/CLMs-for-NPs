@@ -7,8 +7,8 @@
 
 All tasks are managed through `main.py` and can be executed using a simple bash script.
 
-![Workflow Overview](~/plots/project_overview.png)
-![Downstream Application Overview](~/plots/Downstream_Application_Overview.png)
+![Workflow Overview](images/project_overview.png)
+![Downstream Application Overview](images/Downstream_Application_Overview.png)
 
 
 ## 🗂️ Directory Structure
