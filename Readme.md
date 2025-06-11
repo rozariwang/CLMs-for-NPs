@@ -36,7 +36,7 @@ The `run_experiments.sh` script provides examples for running all major tasks (m
 
 All tasks are orchestrated via `main.py` and can be launched with minimal configuration using  `run_experiments.sh`.
 
-
+## 🖼️ Workflow & Downstream Application Overview 
 
 ![Workflow Overview](images/project_overview.png)
 ![Downstream Application Overview](images/Downstream_Application_Overview.png)
