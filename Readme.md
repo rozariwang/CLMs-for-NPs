@@ -29,6 +29,7 @@ To do this, set the `arguments` field in your submit file like this:
 
 ```plaintext
 arguments = YOUR_WANDB_KEY
+```
 
 > 📁 **Example Usage**  
 The `run_experiments.sh` script provides examples for running all major tasks (molecule generation, hyperparameter search, pretraining, and fine-tuning). Uncomment the relevant blocks to execute.
