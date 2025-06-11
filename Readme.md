@@ -1,11 +1,41 @@
-# 🧪 CLMs for Natural Products
+## 🧪 CLMs for Natural Products
 
-- ✅ Natural Products Molecule Generation and Property Prediction 
-- 🔍 Model Pre-training Hyperparameter Search  
-- 🧠 Model Pre-training for Mamba, Mamba2, and GPT
-- 🧬 Fine-tuning for Property Prediction  
+This repository accompanies the thesis *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”*
 
-All tasks are managed through `main.py` and can be executed using a simple bash script.
+It includes all major components for pre-training and evaluating Chemical Language Models (CLMs) on Natural Product (NP) SMILES data (excluding the Tox21 downstream task).
+
+### ✅ What's Included
+
+- **Tokenizers**: Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE variants.   
+- **Pre-training** of 48 CLMs (GPT, Mamba, Mamba-2 × 8 tokenizers × 2 data splits) on a curated 1M NP dataset  
+- **Hyperparameter Search** to optimize the 48 model-tokenizer pair configurations   
+- **Fine-tuning** for NP-relevant property prediction tasks:  
+  - Peptide membrane permeability  
+  - Taste classification  
+  - Anti-cancer activity prediction  
+- **Fine-tuning scripts for benchmark models**: MolFormer and ChemBERTa-2 (MLM and MTR versions)
+- **Molecule Generation** using autoregressive sampling 
+- **Experiment launcher script**: A main shell script (`run_experiments.sh`) is provided to run all major experiments
+
+> ⚠️ **Model Access**  
+A Hugging Face model access key is temporarily provided for PhD committee members to evaluate the repository and code. The models will be made publicly available after thesis submission. Please do not misuse this access.
+
+> ⚙️ **Environment Setup**  
+Setup instructions provided here are tailored for the LSV compute cluster. Alternative environments will be explored if there's future demand.
+
+> 🔑 **WandB API Key**  
+A Weights & Biases (wandb) API key is required for some tasks such as pretraining. It must be passed to the job script as a command-line argument via the HTCondor submit file.  
+To do this, set the `arguments` field in your submit file like this:
+
+```plaintext
+arguments = YOUR_WANDB_KEY
+
+> 📁 **Example Usage**  
+The `run_experiments.sh` script provides examples for running all major tasks (molecule generation, hyperparameter search, pretraining, and fine-tuning). Uncomment the relevant blocks to execute.
+
+All tasks are orchestrated via `main.py` and can be launched with minimal configuration using the helper scripts.
+
+
 
 ![Workflow Overview](images/project_overview.png)
 ![Downstream Application Overview](images/Downstream_Application_Overview.png)
