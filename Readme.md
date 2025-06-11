@@ -34,7 +34,7 @@ arguments = YOUR_WANDB_KEY
 > 📁 **Example Usage**  
 The `run_experiments.sh` script provides examples for running all major tasks (molecule generation, hyperparameter search, pretraining, and fine-tuning). Uncomment the relevant blocks to execute.
 
-All tasks are orchestrated via `main.py` and can be launched with minimal configuration using the helper scripts.
+All tasks are orchestrated via `main.py` and can be launched with minimal configuration using  `run_experiments.sh`.
 
 
 
