@@ -1,10 +1,10 @@
-## 🧪 CLMs for Natural Products
+# 🧪 CLMs for Natural Products
 
 This repository accompanies the thesis *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”*
 
 It includes all major components for pre-training and evaluating Chemical Language Models (CLMs) on Natural Product (NP) SMILES data (excluding the Tox21 downstream task).
 
-### ✅ What's Included
+## ✅ What's Included
 
 - **Tokenizers**: Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE variants.   
 - **Pre-training** of 48 CLMs (GPT, Mamba, Mamba-2 × 8 tokenizers × 2 data splits) on a curated 1M NP dataset  
