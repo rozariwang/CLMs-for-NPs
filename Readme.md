@@ -18,7 +18,7 @@ It includes all major components for pre-training and evaluating Chemical Langua
 - **Experiment launcher script**: A main shell script (`run_experiments.sh`) is provided to run all major experiments
 
 > ⚠️ **Model Access**  
-A Hugging Face model access key is temporarily provided for PhD committee members to evaluate the repository and code. The models will be made publicly available after thesis submission. Please do not misuse this access.
+A Hugging Face model access key is temporarily provided for repository and code evaluation. The models will be made publicly available later on. Please do not misuse this access.
 
 > ⚙️ **Environment Setup**  
 Setup instructions provided here are tailored for the LSV compute cluster. Alternative environments will be explored if there's future demand.
