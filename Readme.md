@@ -7,7 +7,7 @@ It includes all major components for pre-training and evaluating Chemical Langua
 ## ✅ What's Included
 
 - **Data** includes the pre-training data of over 1 million NPs and 4 downstream property prediction datasets 
-- **Tokenizer implementation and vocab.json files** for Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE tokenizers of different vocabulary sizes.    
+- **Tokenizer implementation and vocab.json files** for Character-level, Atom-in-SMILES (AIS), BPE (from DeepChem), and five NPBPE tokenizers of different vocabulary sizes    
 - **Pre-training code** for 48 CLMs (3 model types (GPT, Mamba, Mamba-2) × 8 tokenizers × 2 data splits (scaffold and random splits)) on the curated 1M NP dataset  
 - **Hyperparameter Search code** to optimize the 48 model-tokenizer pair configurations   
 - **Fine-tuning code** for NP-relevant property prediction tasks (excluding Tox21):  
