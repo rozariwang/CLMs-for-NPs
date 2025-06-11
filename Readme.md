@@ -21,7 +21,7 @@ It includes all major components for pre-training and evaluating Chemical Langua
 A Hugging Face model access key is temporarily provided for repository and code evaluation. The models will be made publicly available later on. Please do not misuse this access.
 
 > ⚙️ **Environment Setup**  
-Setup instructions provided are specificly for the LSV cluster. Alternative environments will be explored for future demand.
+Setup instructions provided are specificly for the LSV cluster. Alternative environments will be explored according to future demand.
 
 > 🔑 **WandB API Key**  
 A Weights & Biases (wandb) API key is required for some tasks such as pretraining. It must be passed to the job script as a command-line argument via the HTCondor submit file.  
