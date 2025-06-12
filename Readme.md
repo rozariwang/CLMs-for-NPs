@@ -76,7 +76,7 @@ Run the following commands to build the docker image.
 
 ## ⚙️ How to Run Tasks
 
-All tasks are executed via `main.py`. A helper script `run_experiments.sh` is provided to as an example of how to run all tasks specified above. Uncomment the block corresponding to the task you want to run.
+All tasks are executed via `main.py` using the `run_experiments.sh` bash file. It is provided as an example of how to run all tasks specified above, and the details on how to set task-specific configurations are described below. Uncomment the block corresponding to the task you want to run in `run_experiments.sh`.
 
 ### 1. Molecule Generation
 
