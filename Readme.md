@@ -89,18 +89,40 @@ Uncomment the block corresponding to the task you want to run.
 
 ### 1. Molecule Generation
 
+Molecule generation logic loads a pretrained GPT or Mamba model and its corresponding tokenizer to generate pseudo-NP SMILES strings using autoregressive sampling. It infers configuration details from the model name, generate the sequence,  computes token-sum log-likelihood for each sequence, and writes the results to a CSV file.
+
+Options:
+- task: "generate"
+- num_mols: default=32 (set the number of molecules you want to generate)
+- temperature: default=1.0 (control sampling randomness (lower = more deterministic, higher = more random), 1.0 means no adjustment to the model’s predicted probabilities)
+- max_length: default=512 (set the max length of the generated molecules)
+- model_names: model names follow the format rozariwang/[MODEL]-[TOKENIZER]-[SPLIT], where:
+  - **[MODEL]**: `GPT`, `M1`, or `M2`
+  - **[TOKENIZER]**: `Char`, `AIS`, `BPE`, `npbpe60`, `npbpe100`, `npbpe1000`, `npbpe7924`, or `npbpe30k`
+  - **[SPLIT]**: `rds` (random split) or `sfs` (scaffold split)
+
+[SPLIT]: rds (random split) or sfs (scaffold split)
+
 ```bash
 python3 main.py \
   --task generate \
-  --num_mols 50 \
-  --temperature 0.7 \
-  --max_length 256 \
+  --num_mols 1000 \
+  --temperature 1 \
+  --max_length 512 \
   --model_names rozariwang/M2-NPBPE1000-rds
 ```
 
 ---
 
 ### 2. Hyperparameter Search
+
+ Hyperparameter (random) search over half of the entire search space for GPT and Mamba-based models, determining the best hyperparameter set for pre-training different model-tokenizer combinations. It trains each model over 5 epochs per configuration, and selects the best hyperparameters based on the lowest validation loss in the last epoch.
+
+Options:
+- task: "hpsearch"
+- hp_model: "GPT", "Mamba1", "Mamba2"
+- hp_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", "NPBPE30k"
+- hp_split: "random", "scaffold"
 
 ```bash
 python3 main.py \
@@ -120,20 +142,19 @@ NPBPE100, NPBPE1000, NPBPE7924, NPBPE30k) * 2 data split methods (random, scaffo
 
 Options:
 - task: "pretrain"
---wandb_key: specify "...."
-- pt_model: 
-- pt_tokenizer: 
-- pt_split:
-- pt_n_embd: 
-- pt_n_layer: 
-- pt_lr: 
-- pt_n_head: 
-- pt_n_head: 
+- wandb_key: set it the `arguments` field in your submit file
+- pt_model: "GPT", "Mamba1", "Mamba2"
+- pt_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", "NPBPE30k"
+- pt_split: "random", "scaffold"
+- pt_n_embd: default=256 (set from hyperparameter search result)
+- pt_n_layer: default=8 (set from hyperparameter search result)
+- pt_lr: default=1e-4 (set from hyperparameter search result)
+- pt_n_head: default=None  (set from hyperparameter search result, only needed for transformer models)
 
 ```bash
 python3 main.py \
   --task pretrain \
-  --wandb_key YOUR_WANDB_KEY \
+  --wandb_key "$1" \
   --pt_model GPT \
   --pt_tokenizer NPBPE1000 \
   --pt_split random \
