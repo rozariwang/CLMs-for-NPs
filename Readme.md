@@ -211,11 +211,13 @@ python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
 Fine-tuning MolFormer on property prediction tasks \
 Configuration Options:
 - task: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
+- molformer_variant: "molformer" or "molformer-finetuned"
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
 python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task molformer \
+  --molformer_variant molformer \
   --sub_task peptides \
   --data_split rd
 ```
