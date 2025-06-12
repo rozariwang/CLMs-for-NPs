@@ -79,6 +79,8 @@ Run the following commands to build the docker image.
 
 After cloning this repository into your cluster workspace, all tasks can be executed via `main.py` using the `run_experiments.sh` bash file. It is provided as an example of how to run all tasks specified above, and the details on how to set task-specific configurations are described below. Uncomment the block corresponding to the task you want to run in `run_experiments.sh`.
 
+> **Note**: The path `/nethome/[lsv_user_name]/CLMs-for-NPs/main.py` assumes you cloned the repo into /nethome/[your_username]/. Replace `[lsv_user_name]` with your actual username. If you placed it somewhere else, adjust the path accordingly. 
+
 ### 1. Molecule Generation
 
 Molecule generation logic loads a pretrained GPT or Mamba model and its corresponding tokenizer to generate pseudo-NP SMILES strings using autoregressive sampling. It infers configuration details from the model name, generate the sequence,  computes token-sum log-likelihood for each sequence, and writes the results to a CSV file.
@@ -142,7 +144,7 @@ Configuration Options:
 - pt_n_head: default=None  (set from hyperparameter search result, only needed for transformer models)
 
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task pretrain \
   --wandb_key "$1" \
   --pt_model GPT \
@@ -169,7 +171,7 @@ Configuration Options:
 - model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
 - data_split: "sf" or "rd"
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 main.py \
   --task finetune \
   --sub_task peptides \
   --model_split sfs \
@@ -182,7 +184,7 @@ python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
 
 Fine-tuning ChemBERTa-2 MLM on 1M NPs
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
 ```
 
 Fine-tuning ChemBERTa-2 on property prediction tasks \
@@ -192,7 +194,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task chemberta \
   --chemberta_model_type mtr \
   --sub_task anti_cancer \
@@ -203,7 +205,7 @@ python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
 
 Fine-tuning MolFormer on 1M NPs (requires WandB key)
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task molformer_1M_NPs \
   --wandb_key "$1"
 ```
@@ -215,7 +217,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task molformer \
   --molformer_variant molformer \
   --sub_task peptides \
