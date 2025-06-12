@@ -83,7 +83,7 @@ All tasks are executed via `main.py` using the `run_experiments.sh` bash file. I
 
 Molecule generation logic loads a pretrained GPT or Mamba model and its corresponding tokenizer to generate pseudo-NP SMILES strings using autoregressive sampling. It infers configuration details from the model name, generate the sequence,  computes token-sum log-likelihood for each sequence, and writes the results to a CSV file.
 
-Options:
+Configuration Options:
 - task: "generate"
 - num_mols: default=32 (set the number of molecules you want to generate)
 - temperature: default=1.0 (control sampling randomness (lower = more deterministic, higher = more random), 1.0 means no adjustment to the model’s predicted probabilities)
@@ -106,9 +106,9 @@ python3 main.py \
 
 ### 2. Hyperparameter Search
 
- Hyperparameter (random) search over half of the entire search space for GPT and Mamba-based models, determining the best hyperparameter set for pre-training different model-tokenizer combinations. It trains each model over 5 epochs per configuration, and selects the best hyperparameters based on the lowest validation loss in the last epoch.
+Hyperparameter (random) search over half of the entire search space for GPT and Mamba-based models, determining the best hyperparameter set for pre-training different model-tokenizer combinations. It trains each model over 5 epochs per configuration, and selects the best hyperparameters based on the lowest validation loss in the last epoch.
 
-Options:
+Configuration Options:
 - task: "hpsearch"
 - hp_model: "GPT", "Mamba1", "Mamba2"
 - hp_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", "NPBPE30k"
@@ -130,7 +130,7 @@ Pre-training 48 model variations on 1M NPs:
 3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers (Char, BPE, AIS, NPBPE60, 
 NPBPE100, NPBPE1000, NPBPE7924, NPBPE30k) * 2 data split methods (random, scaffold)
 
-Options:
+Configuration Options:
 - task: "pretrain"
 - wandb_key: set it the `arguments` field in your submit file
 - pt_model: "GPT", "Mamba1", "Mamba2"
@@ -163,7 +163,7 @@ Use `--pt_n_head None` for non-GPT models.
 Fine-tuning and evaluation for 3 downstream classification tasks using 48 NP 
 pretrained models (3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers * 2 data split methods)
 
-Options:
+Configuration Options:
 - task: "finetune"
 - sub_task: "anti_cancer", "peptides", "tastes"
 - model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
@@ -186,7 +186,7 @@ python3 ChemBERTa2_MLM_Finetune_on_1M_NPs.py
 ```
 
 Fine-tuning ChemBERTa-2 on property prediction tasks \
-Options: 
+Configuration Options:
 - task: "chemberta"
 - chemberta_model_type: "mlm" (original model), "mtr" (original model), "mlm-finetuned" (fine-tuned on 1M NPs) 
 - sub_task: "anti_cancer" or "peptides"
@@ -209,7 +209,7 @@ python3 main.py \
 ```
 
 Fine-tuning MolFormer on property prediction tasks \
-Options: 
+Configuration Options:
 - task: "molformer" (original model) or "molformer-finetuned" (fine-tuned on 1M NPs)
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
