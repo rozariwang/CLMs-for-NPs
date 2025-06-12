@@ -96,7 +96,7 @@ Configuration Options:
   - **[SPLIT]**: `rds` (random split) or `sfs` (scaffold split)
 
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task generate \
   --num_mols 1000 \
   --temperature 1 \
@@ -117,7 +117,7 @@ Configuration Options:
 - hp_split: "random" or "scaffold"
 
 ```bash
-python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task hpsearch \
   --hp_model GPT \
   --hp_tokenizer AIS \
@@ -170,8 +170,9 @@ Configuration Options:
 - sub_task: "anti_cancer", "peptides", or "tastes"
 - model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
 - data_split: "sf" or "rd"
+
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task finetune \
   --sub_task peptides \
   --model_split sfs \
