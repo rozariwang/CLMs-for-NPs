@@ -110,9 +110,9 @@ Hyperparameter (random) search over half of the entire search space for GPT and 
 
 Configuration Options:
 - task: "hpsearch"
-- hp_model: "GPT", "Mamba1", "Mamba2"
-- hp_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", "NPBPE30k"
-- hp_split: "random", "scaffold"
+- hp_model: "GPT", "Mamba1", or "Mamba2"
+- hp_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", or "NPBPE30k"
+- hp_split: "random" or "scaffold"
 
 ```bash
 python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
@@ -133,9 +133,9 @@ NPBPE100, NPBPE1000, NPBPE7924, NPBPE30k) * 2 data split methods (random, scaffo
 Configuration Options:
 - task: "pretrain"
 - wandb_key: set it the `arguments` field in your submit file
-- pt_model: "GPT", "Mamba1", "Mamba2"
-- pt_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", "NPBPE30k"
-- pt_split: "random", "scaffold"
+- pt_model: "GPT", "Mamba1", or "Mamba2"
+- pt_tokenizer: "Char", "AIS", "BPE", "NPBPE60", "NPBPE100", "NPBPE1000", "NPBPE7924", or "NPBPE30k"
+- pt_split: "random" or "scaffold"
 - pt_n_embd: default=256 (set from hyperparameter search result)
 - pt_n_layer: default=8 (set from hyperparameter search result)
 - pt_lr: default=1e-4 (set from hyperparameter search result)
@@ -165,7 +165,7 @@ pretrained models (3 model types (GPT, Mamba, or Mamba2) * 8 tokenizers * 2 data
 
 Configuration Options:
 - task: "finetune"
-- sub_task: "anti_cancer", "peptides", "tastes"
+- sub_task: "anti_cancer", "peptides", or "tastes"
 - model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
 - data_split: "sf" or "rd"
 ```bash
@@ -188,7 +188,7 @@ python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/ChemBERTa2_MLM_Fin
 Fine-tuning ChemBERTa-2 on property prediction tasks \
 Configuration Options:
 - task: "chemberta"
-- chemberta_model_type: "mlm" (original model), "mtr" (original model), "mlm-finetuned" (fine-tuned on 1M NPs) 
+- chemberta_model_type: "mlm" (original model), "mtr" (original model), or "mlm-finetuned" (fine-tuned on 1M NPs) 
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
