@@ -92,8 +92,6 @@ Options:
   - **[TOKENIZER]**: `Char`, `AIS`, `BPE`, `npbpe60`, `npbpe100`, `npbpe1000`, `npbpe7924`, or `npbpe30k`
   - **[SPLIT]**: `rds` (random split) or `sfs` (scaffold split)
 
-[SPLIT]: rds (random split) or sfs (scaffold split)
-
 ```bash
 python3 main.py \
   --task generate \
