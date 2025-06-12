@@ -23,8 +23,8 @@ It includes all major components for pre-training and evaluating Chemical Langua
 > ⚠️ **Model Access**  
 A Hugging Face model access key is temporarily provided for repository and code evaluation. The models will be made publicly available later on. Please do not misuse this access.
 
-> ⚙️ **Environment Setup**  
-Setup instructions provided are specificly for the LSV cluster. Alternative environments will be explored according to future demand.
+> ⚙️ **Environment Setup and Running Instructions**  
+Setup and running instructions provided are specificly for the LSV cluster. Alternative environments will be explored according to future demand.
 
 > 🔑 **WandB API Key**  
 A Weights & Biases (wandb) API key is required for some tasks such as pretraining. It must be passed to the job script as a command-line argument via the HTCondor submit file.  
@@ -94,7 +94,7 @@ Configuration Options:
   - **[SPLIT]**: `rds` (random split) or `sfs` (scaffold split)
 
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task generate \
   --num_mols 1000 \
   --temperature 1 \
@@ -115,7 +115,7 @@ Configuration Options:
 - hp_split: "random", "scaffold"
 
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task hpsearch \
   --hp_model GPT \
   --hp_tokenizer AIS \
@@ -142,7 +142,7 @@ Configuration Options:
 - pt_n_head: default=None  (set from hyperparameter search result, only needed for transformer models)
 
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task pretrain \
   --wandb_key "$1" \
   --pt_model GPT \
@@ -169,7 +169,7 @@ Configuration Options:
 - model_split: "sfs" or "rds"  (how the pre-training 1M NPs data is split)
 - data_split: "sf" or "rd"
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task finetune \
   --sub_task peptides \
   --model_split sfs \
@@ -182,7 +182,7 @@ python3 main.py \
 
 Fine-tuning ChemBERTa-2 MLM on 1M NPs
 ```bash
-python3 ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
 ```
 
 Fine-tuning ChemBERTa-2 on property prediction tasks \
@@ -192,7 +192,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task chemberta \
   --chemberta_model_type mtr \
   --sub_task anti_cancer \
@@ -203,7 +203,7 @@ python3 main.py \
 
 Fine-tuning MolFormer on 1M NPs (requires WandB key)
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task molformer_1M_NPs \
   --wandb_key "$1"
 ```
@@ -214,7 +214,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 main.py \
+python3 /nethome/[lsv_user_name]/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task molformer \
   --sub_task peptides \
   --data_split rd
