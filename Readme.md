@@ -64,28 +64,19 @@ lsv_cluster_files/         # Contains cluster-related setup
 
 ## 📦 Environment Setup
 
-
 ### 🔧 Docker Image
 
-1. **Build the image:**
+Run the following commands to build the docker image. 
 
+`docker build --no-cache -f ./lsv_cluster_files/mamba.dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name] .`
 
-2. **Run the container:**
+`docker push   docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name]`
+
 
 
 ## ⚙️ How to Run Tasks
 
-All tasks are executed via `main.py`. A helper script `run_pretrain.sh` is provided to simplify usage.
-
-### 🔧 Script Usage
-
-```bash
-bash run_pretrain.sh YOUR_WANDB_KEY
-```
-
-Uncomment the block corresponding to the task you want to run.
-
----
+All tasks are executed via `main.py`. A helper script `run_experiments.sh` is provided to as an example of how to run all tasks specified above. Uncomment the block corresponding to the task you want to run.
 
 ### 1. Molecule Generation
 
