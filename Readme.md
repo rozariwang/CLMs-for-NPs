@@ -57,9 +57,10 @@ vocab_files/                           # Contains vocab.json files for all custo
 ChemBERTa2_MLM_Finetune_on_1M_NPs.py   # Fine-tune ChemBERTa models on 1M NPs
 ChemBERTa2_finetuned_model.pth         # Model checkpoint of the fine-tuned ChemBERTa-2 (MLM) on 1M NPs 
 ChemBERTa2_finetuning.py               # Fine-tune ChemBERTa models on property prediction tasks
-MolFormer_Finetuning_on_1M_NPs.py      # Fine-tune MolFormer on 1M NPs
 MoLFormer_finetuned_model.pth          # Model checkpoint of the fine-tuned MolFormer on 1M NPs 
+MolFormer_Finetuning_on_1M_NPs.py      # Fine-tune MolFormer on 1M NPs
 MolFormer_Finetuning.py                # Fine-tune MolFormer on property prediction tasks
+Readme.md                              # Project overview and usage instructions
 finetuning.py                          # Fine-tuning the 48 NP-pretrained models on property prediction tasks
 hpsearch.py                            # Pre-training hyperparameter search for the 48 model-tokenizer combinations 
 main.py                                # Entry point
