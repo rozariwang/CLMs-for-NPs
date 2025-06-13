@@ -84,7 +84,7 @@ tokenisers.py                          # Custom tokenizers implementation
 
 ### 🔧 Docker Image
 
-Run the following commands to build the docker image. 
+After cloning this repository into your cluster workspace, run the following commands to build the docker image. 
 
 `docker build --no-cache -f ./lsv_cluster_files/mamba.dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name] .`
 
@@ -94,7 +94,7 @@ Run the following commands to build the docker image.
 
 ## ⚙️ How to Run Tasks
 
-After cloning this repository into your cluster workspace, all tasks can be executed via `main.py` using the `run_experiments.sh` bash file. It is provided as an example of how to run all tasks specified above, and the details on how to set task-specific configurations are described below. Uncomment the block corresponding to the task you want to run in `run_experiments.sh`.
+ All tasks can be executed via `main.py` using the `run_experiments.sh` bash file. It is provided as an example of how to run all tasks specified above, and the details on how to set task-specific configurations are described below. Uncomment the block corresponding to the task you want to run in `run_experiments.sh`.
 
 > **Note**: The path `/nethome/[lsv_user_name]/CLMs-for-NPs/main.py` assumes you have cloned the repo into `/nethome/[your_username]/`. Replace `[lsv_user_name]` with your actual username. If you clone it somewhere else, adjust the path accordingly. 
 
