@@ -1,0 +1,31 @@
+# HTCondor submit description file
+# Everything with a leading # is a comment
+
+universe                = docker
+docker_image            = docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name]
+initialdir              = /nethome/[lsv_user_name]
+executable              = /nethome/[lsv_user_name]/CLMs-for-NPs/lsv_cluster_files/run_experiments.sh 
+#arguments               = (Your Wandb Key)
+output                  = /data/users/[lsv_user_name]/logs/output_$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).log
+error                   = /data/users/[lsv_user_name]/logs/error_$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).log
+log                     = /data/users/[lsv_user_name]/logs/log_$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).log
+request_CPUs            = 1
+request_memory          = 40G
+request_GPUs            = 1
+#requirements            = (GPUs_GlobalMemoryMb >= 40000) && (machine == "cl18lx.lsv.uni-saarland.de")
+requirements            = (GPUs_GlobalMemoryMb >= 40000) && (machine == "cl18lx.lsv.uni-saarland.de")
+#+JobFlavour             = "workday"
+#+MaxRuntime             = 864000
+queue 1
+
+# JobFlavours == maximum runtime
+# this can increase wait time as priority is given to faster jobs
+# espresso     = 20 minutes
+# microcentury = 1 hour
+# longlunch    = 2 hours
+# workday      = 8 hours
+# tomorrow     = 1 day
+# testmatch    = 3 days
+# nextweek     = 1 week
+
+# MaxRuntime for more specific duration (in seconds)
