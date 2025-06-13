@@ -2,6 +2,12 @@
 
 This repository accompanies the thesis *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”* It includes major components of all experiments carried out in this study (excluding Tox21). This Readme file contains detailed information regarding this repository and how to run every experiment outlined below. 
 
+> 💬 **Key Terms**  
+NPs: Natural Products \
+CLMs: Chemical Language Models \
+SMILES: Simplified Molecular Input Line Entry System \
+
+
 ## ✅ What's Included
 
 - **Data** includes the pre-training data of over 1 million NPs and 4 downstream property prediction datasets 
