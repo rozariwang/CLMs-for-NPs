@@ -60,11 +60,11 @@ ChemBERTa2_finetuning.py               # Fine-tune ChemBERTa models on property 
 MolFormer_Finetuning_on_1M_NPs.py      # Fine-tune MolFormer on 1M NPs
 MoLFormer_finetuned_model.pth          # Model checkpoint of the fine-tuned MolFormer on 1M NPs 
 MolFormer_Finetuning.py                # Fine-tune MolFormer on property prediction tasks
-finetuning.py                          # Fine-tuning on property prediction tasks
-hpsearch.py                            # Model pre-training hyperparameter search  
+finetuning.py                          # Fine-tuning the 48 NP-pretrained models on property prediction tasks
+hpsearch.py                            # Pre-training hyperparameter search for the 48 model-tokenizer combinations 
 main.py                                # Entry point
-mol_generation.py                      # NP molecule generation 
-pretraining.py                         # Model pre-training for Mamba, Mamba2, and GPT
+mol_generation.py                      # Pseudo-NP molecule generation 
+pretraining.py                         # Model pre-training for the 48 model-tokenizer combinations
 requirements.txt                       # Python dependencies required to run the project
 sam.py                                 # SAM implementation from UU-Mamba (arXiv:2402.03394)
 tokenisers.py                          # Custom tokenizers implementation 
