@@ -44,22 +44,32 @@ All tasks are orchestrated via `main.py` and can be launched with minimal config
 ## 🗂️ Directory Structure
 
 ```
-main.py                    # Entry point
-mol_generation.py          # NP molecule generation 
-hpsearch.py                # Model pre-training hyperparameter search  
-pretraining.py             # Model pre-training for Mamba, Mamba2, and GPT
-finetuning.py              # Fine-tuning on property prediction tasks
-sam.py                     # SAM implementation from UU-Mamba (arXiv:2402.03394)
-tokenisers.py              # Custom tokenizers implementation 
-data/                      # Contains pre-training 1M NPs and downstream task data files
-├── 1M_NPs/                # Random and Scaffold Split 1M NPs pre-training data
-└── downstream_task_ata/   # Random and Scaffold Split 5x5 CV Downstream Task Datasets
-molformer_n_chemberta_2/   # Contains MolFormer and ChemBERTa-2 fine-tuning code 
-vocab_files/               # Contains vocab.json files for all custom tokenizers 
-lsv_cluster_files/         # Contains cluster-related setup
-├── mamba.dockerfile       # Dockerfile for Mamba training environment
-├── run_experiments.sh     # Shell script to run experiments using main.py 
-└── run_experiments.sub    # Cluster job submission script
+data/                                  # Contains pre-training 1M NPs and downstream task data files
+  ├── 1M_NPs/                          # Random and Scaffold Split 1M NPs pre-training data
+  └── downstream_task_ata/             # Random and Scaffold Split 5x5 CV Downstream Task Datasets
+generated_pseudo_NPs/                  # Generated NP strings from each of the 48 models 
+images/                                # Images of workflow and downstream application overview 
+lsv_cluster_files/                     # Contains cluster-related setup
+  ├── mamba.dockerfile                 # Dockerfile for Mamba training environment
+  ├── run_experiments.sh               # Shell script to run experiments using main.py 
+  └── run_experiments.sub              # Cluster job submission script
+vocab_files/                           # Contains vocab.json files for all custom tokenizers 
+ChemBERTa2_MLM_Finetune_on_1M_NPs.py   # Fine-tune ChemBERTa models on 1M NPs
+ChemBERTa2_finetuned_model.pth         # Model checkpoint of the fine-tuned ChemBERTa-2 (MLM) on 1M NPs 
+ChemBERTa2_finetuning.py               # Fine-tune ChemBERTa models on property prediction tasks
+MolFormer_Finetuning_on_1M_NPs.py      # Fine-tune MolFormer on 1M NPs
+MoLFormer_finetuned_model.pth          # Model checkpoint of the fine-tuned MolFormer on 1M NPs 
+MolFormer_Finetuning.py                # Fine-tune MolFormer on property prediction tasks
+finetuning.py                          # Fine-tuning on property prediction tasks
+hpsearch.py                            # Model pre-training hyperparameter search  
+main.py                                # Entry point
+mol_generation.py                      # NP molecule generation 
+pretraining.py                         # Model pre-training for Mamba, Mamba2, and GPT
+requirements.txt                       # Python dependencies required to run the project
+sam.py                                 # SAM implementation from UU-Mamba (arXiv:2402.03394)
+tokenisers.py                          # Custom tokenizers implementation 
+
+
 ```
 
 
