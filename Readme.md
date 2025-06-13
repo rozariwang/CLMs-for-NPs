@@ -6,6 +6,8 @@ This repository accompanies the thesis *“Chemical Language Models for Natural 
 NPs: Natural Products \
 CLMs: Chemical Language Models \
 SMILES: Simplified Molecular Input Line Entry System \
+BPE: Byte-Pair Encoding \
+NPBPE: Natural Product Byte-Pair Encoding 
 
 
 ## ✅ What's Included
