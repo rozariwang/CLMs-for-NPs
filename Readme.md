@@ -107,7 +107,7 @@ If you encounter issues building the Docker image, you can pull the pre-built im
 
 #### Option 3: Use Public Image from GitHub
 
-[Link to the pre-build Docker Image] (https://github.com/users/rozariwang/packages/container/package/npclms)
+[Link to the pre-build Docker Image](https://github.com/users/rozariwang/packages/container/package/npclms)
 
 1. Pull the pre-built image from GitHub Container Registry: `docker pull ghcr.io/rozariwang/npclms:latest`
 
