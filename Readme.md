@@ -84,7 +84,7 @@ tokenisers.py                          # Custom tokenizers implementation
 
 ### 🔧 Docker Image
 
-Option 1: Build from Source (Recommended)
+#### Option 1: Build from Source (Recommended)
 
 After cloning this repository into your cluster workspace, run the following commands to build the docker image. 
 
@@ -92,7 +92,7 @@ After cloning this repository into your cluster workspace, run the following com
 
 `docker push   docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name]`
 
-Option 2: Use Pre-built Image (Backup)
+#### Option 2: Use Pre-built Image (Backup)
 
 If you encounter issues building the Docker image, you can pull the pre-built image directly:
 
