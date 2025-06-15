@@ -84,7 +84,7 @@ tokenisers.py                          # Custom tokenizers implementation
 
 ### 🔧 Docker Image
 
-#### Option 1: Build from Source (Recommended)
+#### Option 1: Build from Source 
 
 After cloning this repository into your cluster workspace, run the following commands to build the docker image. 
 
