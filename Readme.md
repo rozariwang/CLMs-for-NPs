@@ -84,11 +84,26 @@ tokenisers.py                          # Custom tokenizers implementation
 
 ### 🔧 Docker Image
 
+Option 1: Build from Source (Recommended)
+
 After cloning this repository into your cluster workspace, run the following commands to build the docker image. 
 
 `docker build --no-cache -f ./lsv_cluster_files/mamba.dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name] .`
 
 `docker push   docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name]`
+
+Option 2: Use Pre-built Image (Backup)
+
+If you encounter issues building the Docker image, you can pull the pre-built image directly:
+
+1. Pull the pre-built image:
+`docker pull docker.lsv.uni-saarland.de/hhwang/mamba:1`
+
+2. Retag it for your use (replace the placeholders):
+`docker tag docker.lsv.uni-saarland.de/hhwang/mamba:1 docker.lsv.uni-saarland.de/[your_lsv_username]/[your_image_name]:[your_tag]`
+
+3. Push to your namespace:
+`docker push docker.lsv.uni-saarland.de/[your_lsv_username]/[your_image_name]:[your_tag]`
 
 
 
