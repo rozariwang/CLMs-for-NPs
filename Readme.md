@@ -105,6 +105,19 @@ If you encounter issues building the Docker image, you can pull the pre-built im
 3. Push to your namespace:
 `docker push docker.lsv.uni-saarland.de/[your_lsv_username]/[your_image_name]:[your_tag]`
 
+#### Option 3: Use Public Image from GitHub
+
+1. Pull the pre-built image from GitHub Container Registry:
+
+`docker pull ghcr.io/rozariwang/npclms`
+
+2. (Optional) Retag for your own use:
+
+`docker tag ghcr.io/rozariwang/npclms [your_preferred_name]:[your_tag]`
+
+
+> **Note**: All three options provide the exact same Docker environment. Choose based on your access and preferences.
+
 
 
 ## ⚙️ How to Run Tasks
