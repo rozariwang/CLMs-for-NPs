@@ -1,1 +1,2 @@
+*.pth filter=lfs diff=lfs merge=lfs -text
 MoLFormer_finetuned_model.pth filter=lfs diff=lfs merge=lfs -text
