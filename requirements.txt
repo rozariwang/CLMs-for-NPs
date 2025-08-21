@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eb13374397050c968a137e8df229a2c2f42ff3e029ff8354c274dc9d0c180dbc
-size 341
+# Core dependencies
+numpy<2
+pandas
+scikit-learn
+matplotlib
+plotly
+rdkit-pypi
+datasets
+einops
+optuna
+packaging
+wandb
+accelerate
+torch==2.4
+transformers
+setuptools==69.5.1
+triton==2.2.0
+huggingface_hub
+atomInSmiles
+tokenizers
+tqdm
+
+# From GitHub
+git+https://github.com/state-spaces/mamba.git
+git+https://github.com/Dao-AILab/causal-conv1d.git
