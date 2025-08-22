@@ -4,7 +4,6 @@ import csv
 import time
 from tqdm import tqdm
 from torch.nn.functional import softmax, log_softmax
-from huggingface_hub import login
 from transformers import AutoTokenizer, GPT2LMHeadModel
 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
 from tokenisers import AISTokenizer, CharLevelTokenizer, NPBPETokenizer
@@ -232,7 +231,6 @@ def run_generation(config):
             - 'temperature' (float): Sampling temperature.
             - 'outfile' (str): Output CSV file path.
     """
-    login(token="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")
 
     tokenizer_type, model_type, vocab_path = infer_from_model_name(config["model_name"])
     tokenizer, bos, eos = load_tokenizer(tokenizer_type, vocab_path)
