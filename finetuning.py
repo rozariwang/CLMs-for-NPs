@@ -12,7 +12,6 @@ from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
 from torch.nn.utils.rnn import pad_sequence
 from torch.optim import AdamW
 from torch import nn
-from huggingface_hub import login
 from sklearn.metrics import matthews_corrcoef, roc_auc_score
 from sklearn.utils.class_weight import compute_class_weight
 from tokenisers import NPBPETokenizer, CharLevelTokenizer, AISTokenizer
@@ -36,7 +35,6 @@ def run_finetuning(config):
         - Fine-tunes models using 5-fold cross-validation with early stopping.
         - Evaluates on test sets and logs performance metrics (e.g., MCC, AUC).
     """
-    login(token="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")
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     script_dir = os.path.dirname(os.path.abspath(__file__))
