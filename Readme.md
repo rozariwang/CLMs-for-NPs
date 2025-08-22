@@ -104,7 +104,7 @@ python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task generate \
   --num_mols 1000 \
   --temperature 1 \
-  --max_length 512 I am running a few minutes late; my previous meeting is running over.
+  --max_length 512 
   --model_names rozariwang/M2-NPBPE1000-rds
 ```
 
