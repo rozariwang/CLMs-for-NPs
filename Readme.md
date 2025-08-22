@@ -1,6 +1,6 @@
 # 🧪 CLMs for Natural Products
 
-This repository accompanies the thesis *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”* It includes major components of all experiments carried out in this study (excluding Tox21). This Readme file contains detailed information regarding this repository and how to run every experiment outlined below. 
+This repository accompanies the paper *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”* It includes major components of all experiments carried out in this study. This Readme file contains detailed information regarding this repository and how to run every experiment outlined below. 
 
 > 💬 **Key Terms**  
 NPs: Natural Products \
@@ -26,14 +26,8 @@ NPBPE: Natural Product Byte-Pair Encoding
 - **A dockerfile** is provided to set up the environment to run all experiments
 - **Experiment launcher script**: A main shell script (`run_experiments.sh`) is provided to run all major experiments
 
-> ⚠️ **Model Access**  
-A Hugging Face model access key is temporarily provided for repository and code evaluation. The models will be made publicly available later on. Please do not misuse this access.
-
-> ⚙️ **Environment Setup and Running Instructions**  
-Setup and running instructions provided are specificly for the LSV cluster. Alternative environments will be explored according to future demand.
-
 > 🔑 **WandB API Key**  
-A Weights & Biases (wandb) API key is required for some tasks such as pretraining. It must be passed to the job script as a command-line argument via the HTCondor submit file.  
+A Weights & Biases (wandb) API key is required for some tasks, such as pretraining. It must be passed to the job script as a command-line argument via the HTCondor submit file.  
 To do this, set the `arguments` field in your submit file like this: `arguments = YOUR_WANDB_KEY`
 
 > 📁 **Example Usage**  
@@ -45,7 +39,6 @@ All tasks are orchestrated via `main.py` and can be launched with minimal config
 
 ![Workflow Overview](images/project_overview.png)
 ![Downstream Application Overview](images/Downstream_Application_Overview.png)
-
 
 ## 🗂️ Directory Structure
 
@@ -75,37 +68,11 @@ pretraining.py                         # Model pre-training for the 48 model-tok
 requirements.txt                       # Python dependencies required to run the project
 sam.py                                 # SAM implementation from UU-Mamba (arXiv:2402.03394)
 tokenisers.py                          # Custom tokenizers implementation 
-
-
 ```
-
 
 ## 📦 Environment Setup
 
 ### 🔧 Docker Image
-
-#### Option 1: Build from Source 
-
-After cloning this repository into your cluster workspace, run the following commands to build the docker image. 
-
-`docker build --no-cache -f ./lsv_cluster_files/mamba.dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name] .`
-
-`docker push   docker.lsv.uni-saarland.de/[lsv_user_name]/[image_name]:[tag_name]`
-
-#### Option 2: Use Pre-built Image 
-
-If you encounter issues building the Docker image, you can pull the pre-built image directly:
-
-1. Pull the pre-built image:
-`docker pull docker.lsv.uni-saarland.de/hhwang/mamba:1`
-
-2. Retag it for your use (replace the placeholders):
-`docker tag docker.lsv.uni-saarland.de/hhwang/mamba:1 docker.lsv.uni-saarland.de/[your_lsv_username]/[your_image_name]:[your_tag]`
-
-3. Push to your namespace:
-`docker push docker.lsv.uni-saarland.de/[your_lsv_username]/[your_image_name]:[your_tag]`
-
-#### Option 3: Use Public Image from GitHub
 
 [Link to the Docker Image](https://github.com/users/rozariwang/packages/container/package/npclms)
 
@@ -114,15 +81,9 @@ If you encounter issues building the Docker image, you can pull the pre-built im
 2. (Optional) Retag for your own use: `docker tag ghcr.io/rozariwang/npclms [your_preferred_name]:[your_tag]`
 
 
-> **Note**: All three options provide the exact same Docker environment. Choose based on your access and preferences.
-
-
-
 ## ⚙️ How to Run Tasks
 
  All tasks can be executed via `main.py` using the `run_experiments.sh` bash file. It is provided as an example of how to run all tasks specified above, and the details on how to set task-specific configurations are described below. Uncomment the block corresponding to the task you want to run in `run_experiments.sh`.
-
-> **Note**: The path `/nethome/[lsv_user_name]/CLMs-for-NPs/main.py` assumes you have cloned the repo into `/nethome/[your_username]/`. Replace `[lsv_user_name]` with your actual username. If you clone it somewhere else, adjust the path accordingly. 
 
 ### 1. Molecule Generation
 
@@ -143,7 +104,7 @@ python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
   --task generate \
   --num_mols 1000 \
   --temperature 1 \
-  --max_length 512 \
+  --max_length 512 I am running a few minutes late; my previous meeting is running over.
   --model_names rozariwang/M2-NPBPE1000-rds
 ```
 
