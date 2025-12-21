@@ -100,7 +100,7 @@ Configuration Options:
   - **[SPLIT]**: `rds` (random split) or `sfs` (scaffold split)
 
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task generate \
   --num_mols 1000 \
   --temperature 1 \
@@ -121,7 +121,7 @@ Configuration Options:
 - hp_split: "random" or "scaffold"
 
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task hpsearch \
   --hp_model GPT \
   --hp_tokenizer AIS \
@@ -148,7 +148,7 @@ Configuration Options:
 - pt_n_head: default=None  (set from hyperparameter search result, only needed for transformer models)
 
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task pretrain \
   --wandb_key "$1" \
   --pt_model GPT \
@@ -176,7 +176,7 @@ Configuration Options:
 - data_split: "sf" or "rd"
 
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task finetune \
   --sub_task peptides \
   --model_split sfs \
@@ -189,7 +189,7 @@ python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
 
 Fine-tuning ChemBERTa-2 MLM on 1M NPs
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
+python3 /CLMs-for-NPs/ChemBERTa2_MLM_Finetune_on_1M_NPs.py 
 ```
 
 Fine-tuning ChemBERTa-2 on property prediction tasks \
@@ -199,7 +199,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task chemberta \
   --chemberta_model_type mtr \
   --sub_task anti_cancer \
@@ -210,7 +210,7 @@ python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
 
 Fine-tuning MolFormer on 1M NPs (requires WandB key)
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task molformer_1M_NPs \
   --wandb_key "$1"
 ```
@@ -222,7 +222,7 @@ Configuration Options:
 - sub_task: "anti_cancer" or "peptides"
 - data_split: "rd" or "sf"
 ```bash
-python3 /nethome/[lsv_user_name]/CLMs-for-NPs/main.py \
+python3 /CLMs-for-NPs/main.py \
   --task molformer \
   --molformer_variant molformer \
   --sub_task peptides \
