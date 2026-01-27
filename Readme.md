@@ -1,6 +1,9 @@
 # 🧪 CLMs for Natural Products
 
-This repository accompanies the paper *“Chemical Language Models for Natural Products: A Comparative Study of Mamba and GPT on Molecule Generation and Property Prediction.”* It includes major components of all experiments carried out in this study. This Readme file contains detailed information regarding this repository and how to run every experiment outlined below. 
+This repository accompanies the paper *“Chemical Language Models for Natural Products: A State-Space Model Approach.”* It includes major components of all experiments carried out in this study. This Readme file contains detailed information regarding this repository and how to run every experiment outlined below.
+
+🤗 **Pre-trained models:** All pre-trained models from the paper are available on Hugging Face: [Link to the Models](https://huggingface.co/rozariwang)
+
 
 > 💬 **Key Terms**  
 NPs: Natural Products \
