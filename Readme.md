@@ -1,6 +1,6 @@
 # 🧪 CLMs for Natural Products
 
-This repository accompanies the paper *“Chemical Language Models for Natural Products: A State-Space Model Approach.”* It includes major components of all experiments carried out in this study. This Readme file contains detailed information regarding this repository and how to run every experiment outlined below.
+This repository accompanies the paper [Chemical Language Models for Natural Products: A State-Space Model Approach](https://www.arxiv.org/abs/2602.13958). *arXiv:2602.13958 [cs.LG]* It includes major components of all experiments carried out in this study. This Readme file contains detailed information regarding this repository and how to run every experiment outlined below.
 
 🤗 **Pre-trained models:** All pre-trained models from the paper are available on Hugging Face: [Link to the Models](https://huggingface.co/rozariwang)
 
@@ -231,3 +231,18 @@ python3 /CLMs-for-NPs/main.py \
   --sub_task peptides \
   --data_split rd
 ```
+
+### Citation
+
+If you use this repository or the related pre-trained models on HF, please cite the paper:
+
+```bibtex
+@misc{wang2026chemicallanguagemodelsnatural,
+  title={Chemical Language Models for Natural Products: A State-Space Model Approach}, 
+  author={Ho-Hsuan Wang and Afnan Sultan and Andrea Volkamer and Dietrich Klakow},
+  year={2026},
+  eprint={2602.13958},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.13958}, 
+}
