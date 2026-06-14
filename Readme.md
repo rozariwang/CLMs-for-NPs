@@ -46,6 +46,7 @@ All tasks are orchestrated via `main.py` and can be launched with minimal config
 ## 🗂️ Directory Structure
 
 ```
+cleaned_generated_pseudo_NPs/          # Cleaned, standardized, filtered generated molecule CSVs
 data/                                  # Contains pre-training 1M NPs and downstream task data files
   ├── 1M_NPs/                          # Random and Scaffold Split 1M NPs pre-training data
   └── downstream_task_ata/             # Random and Scaffold Split 5x5 CV Downstream Task Datasets
