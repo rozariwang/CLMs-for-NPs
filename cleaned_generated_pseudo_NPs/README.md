@@ -1,8 +1,7 @@
 # Cleaned Generated Pseudo-NPs
 
 This directory contains the cleaned molecule CSVs generated from the original
-`generated_pseudo_NPs/*_100000.csv` files. Output filenames remove the
-`_100000` suffix from the original names.
+`generated_pseudo_NPs/*_100000.csv` files. 
 
 ## Cleaning Summary
 
